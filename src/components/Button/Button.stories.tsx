@@ -18,6 +18,8 @@ const meta: Meta<typeof Button> = {
   args: {
     children: "Button",
     disabled: false,
+    unstyled: false,
+    loading: false,
   },
   argTypes: {
     variant: {
@@ -29,6 +31,11 @@ const meta: Meta<typeof Button> = {
       type: "string",
       control: "select",
       options: ["lg", "md", "sm"],
+    },
+    radius: {
+      type: "string",
+      control: "select",
+      options: ["full", "lg", "md", "sm"],
     },
     ref: { table: { disable: true } },
   },
