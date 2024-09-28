@@ -12,6 +12,7 @@ import "../src/css/index.css";
 const preview: Preview = {
   parameters: {
     theme: themes.dark,
+    options: {},
     controls: {
       matchers: {
         color: /(background|color)$/i,

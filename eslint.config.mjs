@@ -57,16 +57,6 @@ export default [
           ],
         },
       ],
-      // Enforces a consistent React import style across all files.
-      "no-restricted-syntax": [
-        "warn",
-        {
-          selector:
-            "ImportDeclaration[source.value='react'][importKind='value']:not([specifiers.0.type='ImportNamespaceSpecifier'])",
-          message:
-            "Use 'import * as React from \"react\"' instead in order to be more consistent.",
-        },
-      ],
     },
     settings: {
       react: {
