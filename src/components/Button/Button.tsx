@@ -1,4 +1,3 @@
-// Button.tsx
 import * as React from "react";
 import { LuLoader2 } from "react-icons/lu";
 import { Slot, Slottable } from "@radix-ui/react-slot";

@@ -1,3 +1,4 @@
+import React from "react";
 import { LuPlus } from "react-icons/lu";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -9,17 +10,15 @@ const meta: Meta<typeof Button> = {
   component: Button,
   parameters: {
     layout: "fullscreen",
-    docs: {
-      source: {
-        code: ButtonSourceCode,
-      },
-    },
   },
   args: {
     children: "Button",
     disabled: false,
     unstyled: false,
     loading: false,
+    variant: "primary",
+    size: "md",
+    radius: "md",
   },
   argTypes: {
     variant: {
@@ -46,7 +45,15 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {};
+export const Primary: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: ButtonSourceCode,
+      },
+    },
+  },
+};
 
 export const Secondary: Story = {
   args: {
@@ -87,11 +94,30 @@ export const IconButton: Story = {
 
 export const Sizes: Story = {
   render: (args) => (
-    <>
+    <React.Fragment {...args}>
       <Button size={"sm"}>{args.children}</Button>
       <Button size={"md"}>{args.children}</Button>
       <Button size={"lg"}>{args.children}</Button>
-    </>
+    </React.Fragment>
+  ),
+
+  decorators: [
+    (Story) => (
+      <div className="space-x-2">
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const Radius: Story = {
+  render: (args) => (
+    <React.Fragment {...args}>
+      <Button radius={"full"}>{args.children}</Button>
+      <Button radius={"lg"}>{args.children}</Button>
+      <Button radius={"md"}>{args.children}</Button>
+      <Button radius={"sm"}>{args.children}</Button>
+    </React.Fragment>
   ),
 
   decorators: [
