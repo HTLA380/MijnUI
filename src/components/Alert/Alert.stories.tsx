@@ -16,13 +16,13 @@ const meta: Meta = {
     title: "Heads Up!",
     description: "You can add components to your app using the CLI.",
     icon: <IoRocketOutline />,
-    status: "info",
+    status: "default",
     variant: "filled",
   },
   argTypes: {
     status: {
       control: "select",
-      options: ["success", "info", "warning", "danger"],
+      options: ["success", "default", "warning", "danger"],
     },
     variant: {
       control: "select",
