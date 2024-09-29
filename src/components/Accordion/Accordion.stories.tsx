@@ -6,6 +6,7 @@ import UnstyledAccordionSourceCode from "@/components/Accordion/examples/Unstyle
 import CustomIcon from "./examples/CustomIcon";
 import CustomIconSourceCode from "./examples/CustomIcon.tsx?raw";
 import { Accordion, AccordionItem } from "./Accordion";
+import AccordionSourceCode from "./Accordion.tsx?raw";
 
 /**
  * There are two types of accordions: `single` and `multiple`.
@@ -36,6 +37,28 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  render: (args) => {
+    return (
+      <Accordion className="w-full max-w-80" {...args}>
+        <AccordionItem
+          className="w-full"
+          trigger="Is it accessible"
+          content="Yes. It adheres to the WAI-ARIA design pattern."
+          value="item-1"
+        />
+      </Accordion>
+    );
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: AccordionSourceCode,
+      },
+    },
+  },
+};
+
+export const Example_Usage: Story = {
   render: (args) => {
     return (
       <Accordion className="w-full max-w-80" {...args}>

@@ -3,7 +3,6 @@ import { cva, VariantProps } from "class-variance-authority";
 
 import { cn, conditionalRender } from "@/utils";
 
-// CVA Styles
 const alertStyles = cva(
   "relative rounded-lg w-full py-4 px-3 [&>span~*]:pl-8 border-main-border border [&>svg]:text-main-text [&>div]:translate-y-[-3px]",
   {
@@ -87,7 +86,8 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
 
 Alert.displayName = "Alert";
 
-/* -------------------------------------------------------------------------- */
+/* ----------------------------- Util Components ---------------------------- */
+/* -------------------------------- AlertIcon ------------------------------- */
 
 const AlertIcon = ({ className, ...props }: React.ComponentProps<"span">) => {
   return (
@@ -101,6 +101,8 @@ const AlertIcon = ({ className, ...props }: React.ComponentProps<"span">) => {
   );
 };
 
+/* ------------------------------- AlertTitle ------------------------------- */
+
 const AlertTitle = ({
   className,
   ...props
@@ -112,6 +114,8 @@ const AlertTitle = ({
     />
   );
 };
+
+/* ---------------------------- AlertDescription ---------------------------- */
 
 const AlertDescription = ({
   className,
