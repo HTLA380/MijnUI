@@ -67,6 +67,11 @@ module.exports = {
       borderRadius: {
         default: "0.25rem",
       },
+
+      transitionDuration: {
+        400: "400ms",
+      },
+
       keyframes: {
         "fade-in": {
           "0%": {
@@ -84,35 +89,22 @@ module.exports = {
             opacity: 0,
           },
         },
-        "scale-in": {
-          "0%": {
-            opacity: "0",
-            scale: "0.8",
-          },
-          "100%": {
-            opacity: "1",
-            scale: "1",
-          },
+        "accordion-expand": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
-
-        "scale-out": {
-          "0%": {
-            opacity: "1",
-            scale: "1",
+        "accordion-collapse": {
+          from: {
+            height: "var(--radix-accordion-content-height)",
           },
-          "100%": {
-            opacity: "0",
-            scale: "0.8",
-          },
+          to: { height: "0" },
         },
       },
-
       animation: {
-        "fade-in": "fade-in 0.2s ease-out",
-        "fade-out": "fade-out 0.2s ease-out",
-
-        "scale-in": "fade-in 0.2s ease-out, scale-in 0.2s ease-out",
-        "scale-out": "fade-out 0.2s ease-out, scale-out 0.2s ease-out",
+        "accordion-expand":
+          "accordion-expand 0.2s ease-in-out, fade-in 0.4s ease-in-out",
+        "accordion-collapse":
+          "accordion-collapse 0.2s ease-in-out, fade-out 0.4s ease-in-out",
       },
     },
   },

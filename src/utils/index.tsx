@@ -3,6 +3,18 @@ import { twMerge } from "tailwind-merge";
 
 export const cn = (...classes: ClassValue[]) => twMerge(clsx(classes));
 
-export const generateId = () => {
-  return Math.floor(Math.random() * Date.now()).toString();
+type ConditionalRenderOptions = {
+  component: React.ElementType; // The component to render the string in (like AlertTitle)
+  fallback?: React.ReactNode; // Fallback to show if element is undefined
+};
+
+export const conditionalRender = (
+  element: string | React.ReactNode | undefined,
+  { component: Component, fallback }: ConditionalRenderOptions,
+) => {
+  if (!element) return fallback || null; // Return fallback if no element is provided
+  if (typeof element === "string") {
+    return <Component>{element}</Component>; // If element is string, wrap in custom component
+  }
+  return element; // If it's already a ReactNode, return as is
 };

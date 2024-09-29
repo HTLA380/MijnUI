@@ -13,7 +13,6 @@ const meta: Meta<typeof Button> = {
   args: {
     children: "Button",
     disabled: false,
-    unstyled: false,
     loading: false,
     variant: "primary",
     size: "md",

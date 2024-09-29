@@ -2,7 +2,7 @@ import React from "react";
 import { IoRocketOutline } from "react-icons/io5";
 import { Meta, StoryObj } from "@storybook/react";
 
-import { Alert, AlertDescription, AlertIcon, AlertTitle } from "./Alert";
+import { Alert } from "./Alert";
 import AlertSourceCode from "./Alert.tsx?raw";
 
 const meta: Meta = {
@@ -10,6 +10,14 @@ const meta: Meta = {
   component: Alert,
   parameters: {
     layout: "fullscreen",
+  },
+  args: {
+    className: "w-full max-w-lg",
+    title: "Heads Up!",
+    description: "You can add components to your app using the CLI.",
+    icon: <IoRocketOutline />,
+    status: "info",
+    variant: "filled",
   },
   argTypes: {
     status: {
@@ -20,6 +28,12 @@ const meta: Meta = {
       control: "select",
       options: ["filled", "outline"],
     },
+
+    icon: {
+      control: {
+        disable: true,
+      },
+    },
   },
   tags: ["autodocs"],
 };
@@ -29,20 +43,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: (args) => {
-    return (
-      <Alert {...args} className="w-full max-w-lg">
-        <AlertIcon>
-          <IoRocketOutline />
-        </AlertIcon>
-        <AlertTitle className="text-sm sm:text-base">Heads Up!</AlertTitle>
-        <AlertDescription className="text-xs sm:text-sm">
-          You can add components to your app using the CLI.
-        </AlertDescription>
-      </Alert>
-    );
-  },
-
   parameters: {
     docs: {
       source: {
@@ -52,69 +52,47 @@ export const Default: Story = {
   },
 };
 
-export const Example_Usage: Story = {
-  render: (args) => {
-    return (
-      <Alert {...args} className="w-full max-w-lg">
-        <AlertIcon>
-          <IoRocketOutline />
-        </AlertIcon>
-        <AlertTitle className="text-sm sm:text-base">Heads Up!</AlertTitle>
-        <AlertDescription className="text-xs sm:text-sm">
-          You can add components to your app using the CLI.
-        </AlertDescription>
-      </Alert>
-    );
-  },
-};
+export const Example_Usage: Story = {};
 
 export const Status: Story = {
   render: (args) => {
     return (
       <React.Fragment {...args}>
         {/* --------------------------------- Success --------------------------------  */}
-        <Alert status="success" className="w-full max-w-lg">
-          <AlertIcon>
-            <IoRocketOutline />
-          </AlertIcon>
-          <AlertTitle className="text-sm sm:text-base">Heads Up!</AlertTitle>
-          <AlertDescription className="text-xs sm:text-sm">
-            You can add components to your app using the CLI.
-          </AlertDescription>
-        </Alert>
+        <Alert
+          className="w-full max-w-lg"
+          status="success"
+          title="Head Up!"
+          description="You can add components to your app using the CLI."
+          icon={<IoRocketOutline />}
+        />
 
         {/* --------------------------------- Info --------------------------------  */}
-        <Alert status="info" className="w-full max-w-lg">
-          <AlertIcon>
-            <IoRocketOutline />
-          </AlertIcon>
-          <AlertTitle className="text-sm sm:text-base">Heads Up!</AlertTitle>
-          <AlertDescription className="text-xs sm:text-sm">
-            You can add components to your app using the CLI.
-          </AlertDescription>
-        </Alert>
+        <Alert
+          className="w-full max-w-lg"
+          status="default" // default  status
+          title="Head Up!"
+          description="You can add components to your app using the CLI."
+          icon={<IoRocketOutline />}
+        />
 
         {/* --------------------------------- Warning --------------------------------  */}
-        <Alert status="warning" className="w-full max-w-lg">
-          <AlertIcon>
-            <IoRocketOutline />
-          </AlertIcon>
-          <AlertTitle className="text-sm sm:text-base">Heads Up!</AlertTitle>
-          <AlertDescription className="text-xs sm:text-sm">
-            You can add components to your app using the CLI.
-          </AlertDescription>
-        </Alert>
+        <Alert
+          className="w-full max-w-lg"
+          status="warning"
+          title="Head Up!"
+          description="You can add components to your app using the CLI."
+          icon={<IoRocketOutline />}
+        />
 
         {/* --------------------------------- Danger --------------------------------  */}
-        <Alert status="danger" className="w-full max-w-lg">
-          <AlertIcon>
-            <IoRocketOutline />
-          </AlertIcon>
-          <AlertTitle className="text-sm sm:text-base">Heads Up!</AlertTitle>
-          <AlertDescription className="text-xs sm:text-sm">
-            You can add components to your app using the CLI.
-          </AlertDescription>
-        </Alert>
+        <Alert
+          className="w-full max-w-lg"
+          status="danger"
+          title="Head Up!"
+          description="You can add components to your app using the CLI."
+          icon={<IoRocketOutline />}
+        />
       </React.Fragment>
     );
   },
@@ -132,48 +110,44 @@ export const Variant: Story = {
     return (
       <React.Fragment {...args}>
         {/* --------------------------------- Success --------------------------------  */}
-        <Alert variant="outline" status="success" className="w-full max-w-lg">
-          <AlertIcon>
-            <IoRocketOutline />
-          </AlertIcon>
-          <AlertTitle className="text-sm sm:text-base">Heads Up!</AlertTitle>
-          <AlertDescription className="text-xs sm:text-sm">
-            You can add components to your app using the CLI.
-          </AlertDescription>
-        </Alert>
+        <Alert
+          className="w-full max-w-lg"
+          status="success"
+          variant={"outline"}
+          title="Head Up!"
+          description="You can add components to your app using the CLI."
+          icon={<IoRocketOutline />}
+        />
 
         {/* --------------------------------- Info --------------------------------  */}
-        <Alert variant="outline" status="info" className="w-full max-w-lg">
-          <AlertIcon>
-            <IoRocketOutline />
-          </AlertIcon>
-          <AlertTitle className="text-sm sm:text-base">Heads Up!</AlertTitle>
-          <AlertDescription className="text-xs sm:text-sm">
-            You can add components to your app using the CLI.
-          </AlertDescription>
-        </Alert>
+        <Alert
+          className="w-full max-w-lg"
+          status="default" // default status
+          variant={"outline"}
+          title="Head Up!"
+          description="You can add components to your app using the CLI."
+          icon={<IoRocketOutline />}
+        />
 
         {/* --------------------------------- Warning --------------------------------  */}
-        <Alert variant="outline" status="warning" className="w-full max-w-lg">
-          <AlertIcon>
-            <IoRocketOutline />
-          </AlertIcon>
-          <AlertTitle className="text-sm sm:text-base">Heads Up!</AlertTitle>
-          <AlertDescription className="text-xs sm:text-sm">
-            You can add components to your app using the CLI.
-          </AlertDescription>
-        </Alert>
+        <Alert
+          className="w-full max-w-lg"
+          status="warning"
+          variant={"outline"}
+          title="Head Up!"
+          description="You can add components to your app using the CLI."
+          icon={<IoRocketOutline />}
+        />
 
-        {/* --------------------------------- Danger -------------------------------- */}
-        <Alert variant="outline" status="danger" className="w-full max-w-lg">
-          <AlertIcon>
-            <IoRocketOutline />
-          </AlertIcon>
-          <AlertTitle className="text-sm sm:text-base">Heads Up!</AlertTitle>
-          <AlertDescription className="text-xs sm:text-sm">
-            You can add components to your app using the CLI.
-          </AlertDescription>
-        </Alert>
+        {/* --------------------------------- Danger --------------------------------  */}
+        <Alert
+          className="w-full max-w-lg"
+          status="danger"
+          variant={"outline"}
+          title="Head Up!"
+          description="You can add components to your app using the CLI."
+          icon={<IoRocketOutline />}
+        />
       </React.Fragment>
     );
   },
@@ -184,4 +158,29 @@ export const Variant: Story = {
       </div>
     ),
   ],
+};
+
+/**
+ * You can also pass a ReactNode as the value for the <code><strong>title</strong></code> and <code><strong>description</strong></code> props.
+ * If you pass a ReactNode, the component will use your custom component without any additional wrappers.
+ * However, if you pass a string, the component will render the string using the built-in components provided by the Alert component.
+ */
+
+export const Customization: Story = {
+  render: (args) => {
+    return (
+      <Alert
+        {...args}
+        className="w-full max-w-lg border-blue-500"
+        status="default"
+        title={<h5 className="font-bold text-blue-500">Head Up!</h5>}
+        description={
+          <p className="text-sm text-blue-500">
+            You can add components to your app using the CLI
+          </p>
+        }
+        icon={<IoRocketOutline className="text-blue-500" />}
+      />
+    );
+  },
 };

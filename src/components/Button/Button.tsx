@@ -41,10 +41,9 @@ const buttonStyles = cva(
   },
 );
 
-export type ButtonProps = React.ComponentProps<"button"> &
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonStyles> & {
     asChild?: boolean;
-    unstyled?: boolean;
     loading?: boolean;
   };
 
@@ -58,20 +57,16 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       loading,
       disabled,
       asChild = false,
-      unstyled = false,
       children,
       ...props
     },
     ref,
   ) => {
     const Component = asChild ? Slot : "button";
-    const appliedClasses = unstyled
-      ? className
-      : cn(buttonStyles({ variant, size, radius }), className);
 
     return (
       <Component
-        className={appliedClasses}
+        className={cn(buttonStyles({ variant, size, radius }), className)}
         ref={ref}
         disabled={loading || disabled}
         {...props}
