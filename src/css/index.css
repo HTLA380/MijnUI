@@ -5,7 +5,7 @@
 @layer base {
   :root {
     /* general */
-    --main: 248 250 252; /* slate-50 */
+    --main: 241 245 249; /* slate-100 */
     --main-text: 0 0 0; /* black */
 
     --main-border: 212 212 212; /* neutral-300 */
@@ -22,7 +22,7 @@
     --secondary: 254 215 170; /* #FED7AA */
     --secondary-text: 194 65 12; /* orange-700 */
 
-    --accent: 245 245 245; /* neutral-100 */
+    --accent: 237 237 237; /* neutral-150 */
     --accent-text: 0 0 0; /* black */
 
     --danger: 220 38 38; /* red-500 */

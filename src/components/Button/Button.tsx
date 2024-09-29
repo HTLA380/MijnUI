@@ -7,7 +7,7 @@ import { cn } from "@/utils";
 
 const buttonStyles = cva(
   [
-    "inline-flex items-center justify-center gap-1 active:brightness-90 text-sm disabled:pointer-events-none disabled:brightness-75 disabled:opacity-80 ",
+    "inline-flex items-center justify-center gap-1 transition-colors duration-150 active:brightness-90 text-sm disabled:pointer-events-none disabled:brightness-75 disabled:opacity-80 ",
   ],
   {
     variants: {
@@ -18,6 +18,7 @@ const buttonStyles = cva(
           "border border-main-border hover:bg-accent hover:text-accent-text",
         danger: "bg-danger text-danger-text hover:bg-danger/90",
         ghost: "hover:bg-accent hover:text-accent-text",
+        surface: "bg-surface text-surface-text hover:bg-surface/90 shadow-md",
       },
       radius: {
         sm: "rounded-sm",

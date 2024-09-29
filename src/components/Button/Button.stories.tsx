@@ -1,5 +1,4 @@
 import React from "react";
-import { LuPlus } from "react-icons/lu";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import ButtonSourceCode from "./Button.tsx?raw";
@@ -45,7 +44,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
   parameters: {
     docs: {
       source: {
@@ -55,41 +54,27 @@ export const Primary: Story = {
   },
 };
 
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-  },
-};
+export const Example_Usage: Story = {};
 
-export const Outline: Story = {
-  args: {
-    variant: "outline",
-  },
-};
+export const Variants: Story = {
+  render: (args) => (
+    <React.Fragment {...args}>
+      <Button variant={"primary"}>{args.children}</Button>
+      <Button variant={"secondary"}>{args.children}</Button>
+      <Button variant={"outline"}>{args.children}</Button>
+      <Button variant={"danger"}>{args.children}</Button>
+      <Button variant={"ghost"}>{args.children}</Button>
+      <Button variant={"surface"}>{args.children}</Button>
+    </React.Fragment>
+  ),
 
-export const Danger: Story = {
-  args: {
-    variant: "danger",
-  },
-};
-
-export const Ghost: Story = {
-  args: {
-    variant: "ghost",
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-  },
-};
-
-export const IconButton: Story = {
-  args: {
-    size: "icon",
-    children: <LuPlus size={20} />,
-  },
+  decorators: [
+    (Story) => (
+      <div className="space-x-2">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const Sizes: Story = {
