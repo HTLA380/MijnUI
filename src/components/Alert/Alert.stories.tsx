@@ -1,5 +1,7 @@
 import React from "react";
 import { IoRocketOutline } from "react-icons/io5";
+import { LuCheckCircle, LuFileWarning } from "react-icons/lu";
+import { MdErrorOutline } from "react-icons/md";
 import { Meta, StoryObj } from "@storybook/react";
 
 import { Alert } from "./Alert";
@@ -13,11 +15,11 @@ const meta: Meta = {
   },
   args: {
     className: "w-full max-w-lg",
-    title: "Heads Up!",
-    description: "You can add components to your app using the CLI.",
+    title: "New Feature Added",
+    description: "A new feature has been added to the project.",
     icon: <IoRocketOutline />,
     status: "default",
-    variant: "filled",
+    variant: "outline",
   },
   argTypes: {
     status: {
@@ -62,17 +64,19 @@ export const Status: Story = {
         <Alert
           className="w-full max-w-lg"
           status="success"
-          title="Head Up!"
-          description="You can add components to your app using the CLI."
-          icon={<IoRocketOutline />}
+          variant={"outline"}
+          title="Deployment Successful"
+          description="Your application has been successfully deployed."
+          icon={<LuCheckCircle />}
         />
 
         {/* --------------------------------- Info --------------------------------  */}
         <Alert
           className="w-full max-w-lg"
           status="default" // default  status
-          title="Head Up!"
-          description="You can add components to your app using the CLI."
+          variant={"outline"}
+          title="New Feature Added"
+          description="A new feature has been added to the project."
           icon={<IoRocketOutline />}
         />
 
@@ -80,18 +84,20 @@ export const Status: Story = {
         <Alert
           className="w-full max-w-lg"
           status="warning"
-          title="Head Up!"
-          description="You can add components to your app using the CLI."
-          icon={<IoRocketOutline />}
+          variant={"outline"}
+          title="High Memory Usage"
+          description="The application is using a high amount of memory."
+          icon={<LuFileWarning />}
         />
 
         {/* --------------------------------- Danger --------------------------------  */}
         <Alert
           className="w-full max-w-lg"
           status="danger"
-          title="Head Up!"
-          description="You can add components to your app using the CLI."
-          icon={<IoRocketOutline />}
+          variant={"outline"}
+          title="Build Failed"
+          description="The latest build has failed. Please check the logs for details."
+          icon={<MdErrorOutline />}
         />
       </React.Fragment>
     );
@@ -105,6 +111,11 @@ export const Status: Story = {
   ],
 };
 
+/**
+ * There are two variants available for the Alert component:
+ * 1. <code><strong>filled</strong></code>
+ * 2. <code><strong>outline</strong></code>
+ */
 export const Variant: Story = {
   render: (args) => {
     return (
@@ -113,19 +124,19 @@ export const Variant: Story = {
         <Alert
           className="w-full max-w-lg"
           status="success"
-          variant={"outline"}
-          title="Head Up!"
-          description="You can add components to your app using the CLI."
-          icon={<IoRocketOutline />}
+          variant={"filled"}
+          title="Deployment Successful"
+          description="Your application has been successfully deployed."
+          icon={<LuCheckCircle />}
         />
 
         {/* --------------------------------- Info --------------------------------  */}
         <Alert
           className="w-full max-w-lg"
-          status="default" // default status
-          variant={"outline"}
-          title="Head Up!"
-          description="You can add components to your app using the CLI."
+          status="default" // default  status
+          variant={"filled"}
+          title="New Feature Added"
+          description="A new feature has been added to the project."
           icon={<IoRocketOutline />}
         />
 
@@ -133,20 +144,20 @@ export const Variant: Story = {
         <Alert
           className="w-full max-w-lg"
           status="warning"
-          variant={"outline"}
-          title="Head Up!"
-          description="You can add components to your app using the CLI."
-          icon={<IoRocketOutline />}
+          variant={"filled"}
+          title="High Memory Usage"
+          description="The application is using a high amount of memory."
+          icon={<LuFileWarning />}
         />
 
         {/* --------------------------------- Danger --------------------------------  */}
         <Alert
           className="w-full max-w-lg"
           status="danger"
-          variant={"outline"}
-          title="Head Up!"
-          description="You can add components to your app using the CLI."
-          icon={<IoRocketOutline />}
+          variant={"filled"}
+          title="Build Failed"
+          description="The latest build has failed. Please check the logs for details."
+          icon={<MdErrorOutline />}
         />
       </React.Fragment>
     );
@@ -173,10 +184,11 @@ export const Customization: Story = {
         {...args}
         className="w-full max-w-lg border-blue-500"
         status="default"
-        title={<h5 className="font-bold text-blue-500">Head Up!</h5>}
+        title={<h5 className="font-bold text-blue-500">Customized Alert</h5>}
         description={
           <p className="text-sm text-blue-500">
-            You can add components to your app using the CLI
+            You can customize the title and description of the alert by passing
+            a ReactNode as the value for the props.
           </p>
         }
         icon={<IoRocketOutline className="text-blue-500" />}

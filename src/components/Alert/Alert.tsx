@@ -55,7 +55,7 @@ const alertStyles = cva(
       },
     ],
     defaultVariants: {
-      variant: "filled",
+      variant: "outline",
       status: "default",
     },
   },
