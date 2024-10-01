@@ -25,14 +25,21 @@
     --accent: 237 237 237; /* neutral-150 */
     --accent-text: 0 0 0; /* black */
 
+    --info: 59 130 246; /* blue-500 */
+    --info-text: 30 64 175; /* blue-800 */
+    --info-filled-text: 255 255 255; /* white */
+
     --danger: 220 38 38; /* red-500 */
-    --danger-text: 255 255 255; /* white */
+    --danger-text: 153 27 27; /* red-800 */
+    --danger-filled-text: 255 255 255; /* white */
 
     --warning: 234 179 8; /* yellow-500 */
-    --warning-text: 0 0 0; /* black */
+    --warning-text: 133 77 14; /* yellow-800 */
+    --warning-filled-text: 0 0 0; /* white */
 
     --success: 22 163 74; /* green-500 */
-    --success-text: 255 255 255; /* white */
+    --success-text: 22 101 52; /* green-800 */
+    --success-filled-text: 255 255 255; /* white */
 
     --disabled: 212 212 212; /* neutral-300 */
     --disabled-text: 115 115 115; /* neutral 500 */
@@ -63,21 +70,28 @@
     --accent: 26 26 26; /* #1a1a1a */
     --accent-text: 245 245 245; /* neutral-100 */
 
+    --info: 59 130 246; /* blue-500 */
+    --info-text: 191 219 254; /* blue-200 */
+    --info-filled-text: 255 255 255; /* white */
+
     --danger: 220 38 38; /* red-500 */
-    --danger-text: 255 255 255; /* white */
+    --danger-text: 254 202 202; /* red-200 */
+    --danger-filled-text: 255 255 255; /* white */
 
     --warning: 234 179 8; /* yellow-500 */
-    --warning-text: 245 245 245; /* neutral-100 */
+    --warning-text: 254 240 138; /* yellow-200 */
+    --warning-filled-text: 0 0 0; /* white */
 
     --success: 22 163 74; /* green-500 */
-    --success-text: 255 255 255; /* white */
+    --success-text: 187 247 208; /* green-200 */
+    --success-filled-text: 255 255 255; /* white */
 
     --disabled: 38 38 38; /* neutral-800 */
-    --disabled-text: 115 115 115; /* text-500 */
+    --disabled-text: 115 115 115; /* neutral-800 */
 
     --ring: 38 38 38;
 
-    --main-border: 115 115 115; /* text-500 */
+    --main-border: 38 38 38; /* neutral-800 */
 
     --input-border: 245 245 245; /* neutral-100 */
     --kanban: 38 38 38; /* neutral-800 */

@@ -4,7 +4,7 @@ import { LuCheckCircle, LuFileWarning } from "react-icons/lu";
 import { MdErrorOutline } from "react-icons/md";
 import { Meta, StoryObj } from "@storybook/react";
 
-import { Alert } from "./Alert";
+import { Alert, AlertDescription, AlertIcon, AlertTitle } from "./Alert";
 import AlertSourceCode from "./Alert.tsx?raw";
 
 const meta: Meta = {
@@ -18,17 +18,17 @@ const meta: Meta = {
     title: "New Feature Added",
     description: "A new feature has been added to the project.",
     icon: <IoRocketOutline />,
-    status: "default",
+    status: "neutral",
     variant: "outline",
   },
   argTypes: {
     status: {
       control: "select",
-      options: ["success", "default", "warning", "danger"],
+      options: ["neutral", "success", "info", "warning", "danger"],
     },
     variant: {
       control: "select",
-      options: ["filled", "outline"],
+      options: ["default", "filled", "outline"],
     },
 
     icon: {
@@ -45,6 +45,19 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  render: (args) => (
+    <Alert
+      className={args.className}
+      status={args.status}
+      variant={args.variant}
+    >
+      <AlertIcon>
+        <IoRocketOutline />
+      </AlertIcon>
+      <AlertTitle>{args.title}</AlertTitle>
+      <AlertDescription>{args.description}</AlertDescription>
+    </Alert>
+  ),
   parameters: {
     docs: {
       source: {
@@ -54,7 +67,21 @@ export const Default: Story = {
   },
 };
 
-export const Example_Usage: Story = {};
+export const Example_Usage: Story = {
+  render: (args) => (
+    <Alert
+      className={args.className}
+      status={args.status}
+      variant={args.variant}
+    >
+      <AlertIcon>
+        <IoRocketOutline />
+      </AlertIcon>
+      <AlertTitle>{args.title}</AlertTitle>
+      <AlertDescription>{args.description}</AlertDescription>
+    </Alert>
+  ),
+};
 
 export const Status: Story = {
   render: (args) => {
@@ -63,42 +90,58 @@ export const Status: Story = {
         {/* --------------------------------- Success --------------------------------  */}
         <Alert
           className="w-full max-w-lg"
-          status="success"
+          status={"success"}
           variant={"outline"}
-          title="Deployment Successful"
-          description="Your application has been successfully deployed."
-          icon={<LuCheckCircle />}
-        />
+        >
+          <AlertIcon>
+            <LuCheckCircle />
+          </AlertIcon>
+          <AlertTitle>Deployment Successful</AlertTitle>
+          <AlertDescription>
+            Your application has been successfully deployed.
+          </AlertDescription>
+        </Alert>
 
-        {/* --------------------------------- Info --------------------------------  */}
-        <Alert
-          className="w-full max-w-lg"
-          status="default" // default  status
-          variant={"outline"}
-          title="New Feature Added"
-          description="A new feature has been added to the project."
-          icon={<IoRocketOutline />}
-        />
+        {/* --------------------------------- Default/Info --------------------------------  */}
+        <Alert className="w-full max-w-lg" status={"info"} variant={"outline"}>
+          <AlertIcon>
+            <IoRocketOutline />
+          </AlertIcon>
+          <AlertTitle>New Feature Added</AlertTitle>
+          <AlertDescription>
+            A new feature has been added to the project.
+          </AlertDescription>
+        </Alert>
 
         {/* --------------------------------- Warning --------------------------------  */}
         <Alert
           className="w-full max-w-lg"
-          status="warning"
+          status={"warning"}
           variant={"outline"}
-          title="High Memory Usage"
-          description="The application is using a high amount of memory."
-          icon={<LuFileWarning />}
-        />
+        >
+          <AlertIcon>
+            <LuFileWarning />
+          </AlertIcon>
+          <AlertTitle>High Memory Usage</AlertTitle>
+          <AlertDescription>
+            The application is using a high amount of memory.
+          </AlertDescription>
+        </Alert>
 
         {/* --------------------------------- Danger --------------------------------  */}
         <Alert
           className="w-full max-w-lg"
-          status="danger"
+          status={"danger"}
           variant={"outline"}
-          title="Build Failed"
-          description="The latest build has failed. Please check the logs for details."
-          icon={<MdErrorOutline />}
-        />
+        >
+          <AlertIcon>
+            <MdErrorOutline />
+          </AlertIcon>
+          <AlertTitle>Build Failed</AlertTitle>
+          <AlertDescription>
+            The latest build has failed. Please check the logs for details.
+          </AlertDescription>
+        </Alert>
       </React.Fragment>
     );
   },
@@ -116,49 +159,61 @@ export const Status: Story = {
  * 1. <code><strong>filled</strong></code>
  * 2. <code><strong>outline</strong></code>
  */
-export const Variant: Story = {
+export const Variants: Story = {
   render: (args) => {
     return (
       <React.Fragment {...args}>
         {/* --------------------------------- Success --------------------------------  */}
         <Alert
           className="w-full max-w-lg"
-          status="success"
+          status={"success"}
           variant={"filled"}
-          title="Deployment Successful"
-          description="Your application has been successfully deployed."
-          icon={<LuCheckCircle />}
-        />
+        >
+          <AlertIcon>
+            <LuCheckCircle />
+          </AlertIcon>
+          <AlertTitle>Deployment Successful</AlertTitle>
+          <AlertDescription>
+            Your application has been successfully deployed.
+          </AlertDescription>
+        </Alert>
 
-        {/* --------------------------------- Info --------------------------------  */}
-        <Alert
-          className="w-full max-w-lg"
-          status="default" // default  status
-          variant={"filled"}
-          title="New Feature Added"
-          description="A new feature has been added to the project."
-          icon={<IoRocketOutline />}
-        />
+        {/* --------------------------------- Default/Info --------------------------------  */}
+        <Alert className="w-full max-w-lg" status={"info"} variant={"filled"}>
+          <AlertIcon>
+            <IoRocketOutline />
+          </AlertIcon>
+          <AlertTitle>New Feature Added</AlertTitle>
+          <AlertDescription>
+            A new feature has been added to the project.
+          </AlertDescription>
+        </Alert>
 
         {/* --------------------------------- Warning --------------------------------  */}
         <Alert
           className="w-full max-w-lg"
-          status="warning"
+          status={"warning"}
           variant={"filled"}
-          title="High Memory Usage"
-          description="The application is using a high amount of memory."
-          icon={<LuFileWarning />}
-        />
+        >
+          <AlertIcon>
+            <LuFileWarning />
+          </AlertIcon>
+          <AlertTitle>High Memory Usage</AlertTitle>
+          <AlertDescription>
+            The application is using a high amount of memory.
+          </AlertDescription>
+        </Alert>
 
         {/* --------------------------------- Danger --------------------------------  */}
-        <Alert
-          className="w-full max-w-lg"
-          status="danger"
-          variant={"filled"}
-          title="Build Failed"
-          description="The latest build has failed. Please check the logs for details."
-          icon={<MdErrorOutline />}
-        />
+        <Alert className="w-full max-w-lg" status={"danger"} variant={"filled"}>
+          <AlertIcon>
+            <MdErrorOutline />
+          </AlertIcon>
+          <AlertTitle>Build Failed</AlertTitle>
+          <AlertDescription>
+            The latest build has failed. Please check the logs for details.
+          </AlertDescription>
+        </Alert>
       </React.Fragment>
     );
   },
@@ -169,30 +224,4 @@ export const Variant: Story = {
       </div>
     ),
   ],
-};
-
-/**
- * You can also pass a ReactNode as the value for the <code><strong>title</strong></code> and <code><strong>description</strong></code> props.
- * If you pass a ReactNode, the component will use your custom component without any additional wrappers.
- * However, if you pass a string, the component will render the string using the built-in components provided by the Alert component.
- */
-
-export const Customization: Story = {
-  render: (args) => {
-    return (
-      <Alert
-        {...args}
-        className="w-full max-w-lg border-blue-500"
-        status="default"
-        title={<h5 className="font-bold text-blue-500">Customized Alert</h5>}
-        description={
-          <p className="text-sm text-blue-500">
-            You can customize the title and description of the alert by passing
-            a ReactNode as the value for the props.
-          </p>
-        }
-        icon={<IoRocketOutline className="text-blue-500" />}
-      />
-    );
-  },
 };

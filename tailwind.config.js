@@ -37,19 +37,28 @@ module.exports = {
           text: "rgb(var(--accent-text) / <alpha-value>)",
         },
 
-        danger: {
-          DEFAULT: "rgb(var(--danger) / <alpha-value>)",
-          text: "rgb(var(--danger-text) / <alpha-value>)",
+        success: {
+          DEFAULT: "rgb(var(--success) / <alpha-value>)",
+          text: "rgb(var(--success-text) / <alpha-value>)",
+          "filled-text": "rgb(var(--success-filled-text) / <alpha-value>)",
+        },
+
+        info: {
+          DEFAULT: "rgb(var(--info) / <alpha-value>)",
+          text: "rgb(var(--info-text) / <alpha-value>)",
+          "filled-text": "rgb(var(--info-filled-text) / <alpha-value>)",
         },
 
         warning: {
           DEFAULT: "rgb(var(--warning) / <alpha-value>)",
           text: "rgb(var(--warning-text) / <alpha-value>)",
+          "filled-text": "rgb(var(--warning-filled-text) / <alpha-value>)",
         },
 
-        success: {
-          DEFAULT: "rgb(var(--success) / <alpha-value>)",
-          text: "rgb(var(--success-text) / <alpha-value>)",
+        danger: {
+          DEFAULT: "rgb(var(--danger) / <alpha-value>)",
+          text: "rgb(var(--danger-text) / <alpha-value>)",
+          "filled-text": "rgb(var(--danger-filled-text) / <alpha-value>)",
         },
 
         disabled: {
@@ -88,6 +97,24 @@ module.exports = {
           "100%": {
             opacity: 0,
           },
+
+          "scale-in": {
+            "0%": {
+              transform: "scale(.5)",
+            },
+            "100%": {
+              transform: "scale(1)",
+            },
+          },
+
+          "scale-out": {
+            "0%": {
+              transform: "scale(1)",
+            },
+            "100%": {
+              transform: "scale(.5)",
+            },
+          },
         },
         "accordion-expand": {
           from: { height: "0" },
@@ -105,8 +132,11 @@ module.exports = {
           "accordion-expand 0.2s ease-in-out, fade-in 0.4s ease-in-out",
         "accordion-collapse":
           "accordion-collapse 0.2s ease-in-out, fade-out 0.4s ease-in-out",
+
+        "scale-in": "scale-in 0.5s 0.2s ease-out, fade-in 0.4s ease-out",
+        "scale-out": "scale-out 0.5s 0.2s ease-out, fade-out 0.4s ease-out",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };

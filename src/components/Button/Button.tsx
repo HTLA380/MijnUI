@@ -3,7 +3,8 @@ import { LuLoader2 } from "react-icons/lu";
 import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/utils";
+import { UnstyledProps } from "@/types";
+import { applyUnstyled, cn } from "@/utils";
 
 const buttonStyles = cva(
   [
@@ -16,7 +17,7 @@ const buttonStyles = cva(
         secondary: "bg-secondary text-secondary-text hover:bg-secondary/90",
         outline:
           "border border-main-border hover:bg-accent hover:text-accent-text",
-        danger: "bg-danger text-danger-text hover:bg-danger/90",
+        danger: "bg-danger text-danger-filled-text hover:bg-danger/90",
         ghost: "hover:bg-accent hover:text-accent-text",
         surface: "bg-surface text-surface-text hover:bg-surface/90 shadow-md",
       },
@@ -45,11 +46,12 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonStyles> & {
     asChild?: boolean;
     loading?: boolean;
-  };
+  } & UnstyledProps;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
+      unstyled,
       className,
       variant,
       size,
@@ -66,13 +68,22 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Component
-        className={cn(buttonStyles({ variant, size, radius }), className)}
+        className={applyUnstyled(
+          unstyled,
+          buttonStyles({ variant, size, radius }),
+          className,
+        )}
         ref={ref}
         disabled={loading || disabled}
         {...props}
       >
         {loading && (
-          <LuLoader2 className="mr-2 h-5 w-5 animate-spin text-muted" />
+          <LuLoader2
+            className={applyUnstyled(
+              unstyled,
+              "mr-2 h-5 w-5 animate-spin text-muted",
+            )}
+          />
         )}
         <Slottable>{loading ? "Loading..." : children}</Slottable>
       </Component>
