@@ -18,3 +18,11 @@ export const conditionalRender = (
   }
   return element; // If it's already a ReactNode, return as is
 };
+
+export const applyUnstyled = (
+  unstyled: boolean | undefined,
+  defaultClasses: string,
+  userClasses?: string,
+) => {
+  return unstyled ? userClasses : cn(defaultClasses, userClasses);
+};

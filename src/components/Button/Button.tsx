@@ -4,7 +4,7 @@ import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { UnstyledProps } from "@/types";
-import { applyUnstyled, cn } from "@/utils";
+import { applyUnstyled } from "@/utils";
 
 const buttonStyles = cva(
   [
