@@ -1,7 +1,7 @@
 import { StoryObj } from "@storybook/react";
 
-import CustomIcon from "./examples/CustomIcon";
-import CustomIconSourceCode from "./examples/CustomIcon.tsx?raw";
+import CustomIcon from "./Examples/CustomIcon";
+import CustomIconSourceCode from "./Examples/CustomIcon.tsx?raw";
 import {
   Accordion,
   AccordionContent,
@@ -30,6 +30,7 @@ const meta = {
   args: {
     type: "single",
     collapsible: true,
+    unstyled: false,
   },
   tags: ["autodocs"],
 };

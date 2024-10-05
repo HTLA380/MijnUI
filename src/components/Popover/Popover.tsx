@@ -15,7 +15,7 @@ const PopoverAnchor = RadixPopover.Anchor;
 
 const PopoverClose = RadixPopover.Close;
 
-/* ----------------------------- P  opoverTrigger ----------------------------- */
+/* ----------------------------- PopoverTrigger ----------------------------- */
 
 type PopoverTriggerProps = React.ComponentPropsWithoutRef<
   typeof RadixPopover.Trigger
@@ -69,9 +69,9 @@ PopoverContent.displayName = RadixPopover.Content.displayName;
 
 export {
   Popover,
-  PopoverTrigger,
-  PopoverContent,
+  PopoverAnchor,
   PopoverArrow,
   PopoverClose,
-  PopoverAnchor,
+  PopoverContent,
+  PopoverTrigger,
 };

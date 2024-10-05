@@ -17,6 +17,7 @@ const meta: Meta<typeof Button> = {
     variant: "primary",
     size: "md",
     radius: "md",
+    unstyled: false,
   },
   argTypes: {
     variant: {
