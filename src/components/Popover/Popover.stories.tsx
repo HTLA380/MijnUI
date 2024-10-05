@@ -11,6 +11,9 @@ const meta: Meta<typeof Popover> = {
   parameters: {
     layout: "fullscreen",
   },
+  args: {
+    unstyled: false,
+  },
   decorators: [
     (Story) => (
       <div className="flex min-h-[530px] items-center justify-center">
@@ -26,7 +29,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: () => <PopoverExample />,
+  render: (args) => <PopoverExample unstyled={args.unstyled} />,
   parameters: {
     docs: {
       source: {
@@ -37,7 +40,7 @@ export const Default: Story = {
 };
 
 export const Example_Usage: Story = {
-  render: () => <PopoverExample />,
+  render: (args) => <PopoverExample unstyled={args.unstyled} />,
   parameters: {
     docs: {
       source: {

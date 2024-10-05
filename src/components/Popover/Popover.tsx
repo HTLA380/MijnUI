@@ -12,8 +12,6 @@ const PopoverArrow = RadixPopover.Arrow;
 
 const PopoverAnchor = RadixPopover.Anchor;
 
-const PopoverClose = RadixPopover.Close;
-
 type PopoverProps = React.ComponentProps<typeof RadixPopover.Root> &
   UnstyledProps;
 
@@ -51,7 +49,35 @@ const PopoverTrigger = React.forwardRef<
   );
 });
 
-PopoverTrigger.displayName = "PopoverTrigger";
+PopoverTrigger.displayName = RadixPopover.PopoverTrigger.displayName;
+
+/* ----------------------------- PopoverClose ----------------------------- */
+
+type PopoverCloseProps = React.ComponentPropsWithoutRef<
+  typeof RadixPopover.Close
+> &
+  UnstyledProps;
+
+const PopoverClose = React.forwardRef<
+  React.ElementRef<typeof RadixPopover.Close>,
+  PopoverCloseProps
+>(({ unstyled, className, ...props }) => {
+  const { unstyled: contextUnstyled } = useUnstyled();
+  const isUnstyled = unstyled ?? contextUnstyled;
+
+  return (
+    <RadixPopover.Close
+      className={applyUnstyled(
+        isUnstyled,
+        buttonStyles({ variant: "ghost" }),
+        className,
+      )}
+      {...props}
+    />
+  );
+});
+
+PopoverClose.displayName = RadixPopover.PopoverClose.displayName;
 
 /* ----------------------------- PopoverContent ----------------------------- */
 

@@ -11,14 +11,15 @@ import {
 } from "@/components/Popover/Popover";
 
 // Making All of the Accordion Components Unstyled
+type PopoverExampleProps = {
+  unstyled?: boolean;
+};
 
-export const PopoverExample = () => {
+export const PopoverExample = ({ unstyled = false }: PopoverExampleProps) => {
   return (
-    <Popover>
-      <PopoverTrigger unstyled asChild>
-        <Button size={"icon"} radius={"full"} variant={"surface"}>
-          <RxMixerHorizontal size={18} />
-        </Button>
+    <Popover unstyled={unstyled}>
+      <PopoverTrigger>
+        <RxMixerHorizontal size={18} />
       </PopoverTrigger>
       <PopoverContent className="relative w-72">
         <div className="flex flex-col justify-center gap-2.5">
@@ -77,7 +78,7 @@ export const PopoverExample = () => {
             />
           </fieldset>
         </div>
-        <PopoverClose asChild>
+        <PopoverClose unstyled asChild>
           <Button
             variant={"ghost"}
             size={"icon"}

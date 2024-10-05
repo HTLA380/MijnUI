@@ -119,6 +119,10 @@ const alertStyles = cva(
   },
 );
 
+/* -------------------------------------------------------------------------- */
+/*                                    Alert                                   */
+/* -------------------------------------------------------------------------- */
+
 export type AlertProps = React.ComponentProps<"div"> &
   VariantProps<typeof alertStyles> &
   UnstyledProps;
@@ -129,7 +133,11 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       <div
         ref={ref}
         {...props}
-        className={cn(alertStyles({ variant, status, className }))}
+        className={applyUnstyled(
+          unstyled,
+          alertStyles({ variant, status }),
+          className,
+        )}
       />
     </UnstyledProvider>
   ),
@@ -137,7 +145,9 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
 
 Alert.displayName = "Alert";
 
-/* -------------------------------- AlertIcon ------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                  AlertIcon                                 */
+/* -------------------------------------------------------------------------- */
 
 type AlertIconProps = React.ComponentProps<"span"> & UnstyledProps;
 
@@ -162,7 +172,9 @@ const AlertIcon = React.forwardRef<HTMLSpanElement, AlertIconProps>(
 
 AlertIcon.displayName = "AlertIcon";
 
-/* ------------------------------- AlertTitle ------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                 AlertTitle                                 */
+/* -------------------------------------------------------------------------- */
 
 type AlertTitle = React.ComponentProps<"h5"> & UnstyledProps;
 

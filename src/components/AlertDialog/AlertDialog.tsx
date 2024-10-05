@@ -8,9 +8,11 @@ import { UnstyledProvider, useUnstyled } from "@/context/UnstyledProvider";
 import { UnstyledProps } from "@/types";
 import { applyUnstyled } from "@/utils";
 
-const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
-
 const AlertDialogPortal = AlertDialogPrimitive.Portal;
+
+/* -------------------------------------------------------------------------- */
+/*                                 AlertDialog                                */
+/* -------------------------------------------------------------------------- */
 
 const AlertDialog = ({
   unstyled = false,
@@ -22,6 +24,36 @@ const AlertDialog = ({
     </UnstyledProvider>
   );
 };
+
+/* -------------------------------------------------------------------------- */
+/*                             AlertDialogTrigger                             */
+/* -------------------------------------------------------------------------- */
+
+const AlertDialogTrigger = React.forwardRef<
+  React.ElementRef<typeof AlertDialogPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Trigger> &
+    UnstyledProps
+>(({ unstyled, className, ...props }, ref) => {
+  const { unstyled: contextUnstyled } = useUnstyled();
+  const isUnstyled = unstyled ?? contextUnstyled;
+
+  return (
+    <AlertDialogPrimitive.Trigger
+      ref={ref}
+      className={applyUnstyled(
+        isUnstyled,
+        buttonStyles({ variant: "surface" }),
+        className,
+      )}
+      {...props}
+    />
+  );
+});
+AlertDialogTrigger.displayName = AlertDialogPrimitive.Trigger.displayName;
+
+/* -------------------------------------------------------------------------- */
+/*                             AlertDialogOverlay                             */
+/* -------------------------------------------------------------------------- */
 
 const AlertDialogOverlay = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Overlay>,
@@ -44,6 +76,10 @@ const AlertDialogOverlay = React.forwardRef<
   );
 });
 AlertDialogOverlay.displayName = AlertDialogPrimitive.Overlay.displayName;
+
+/* -------------------------------------------------------------------------- */
+/*                             AlertDialogContent                             */
+/* -------------------------------------------------------------------------- */
 
 const AlertDialogContent = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Content>,
@@ -72,6 +108,10 @@ const AlertDialogContent = React.forwardRef<
 });
 AlertDialogContent.displayName = AlertDialogPrimitive.Content.displayName;
 
+/* -------------------------------------------------------------------------- */
+/*                              AlertDialogHeader                             */
+/* -------------------------------------------------------------------------- */
+
 const AlertDialogHeader = ({
   unstyled,
   className,
@@ -92,6 +132,10 @@ const AlertDialogHeader = ({
   );
 };
 AlertDialogHeader.displayName = "AlertDialogHeader";
+
+/* -------------------------------------------------------------------------- */
+/*                              AlertDialogFooter                             */
+/* -------------------------------------------------------------------------- */
 
 const AlertDialogFooter = ({
   className,
@@ -114,6 +158,10 @@ const AlertDialogFooter = ({
 };
 AlertDialogFooter.displayName = "AlertDialogFooter";
 
+/* -------------------------------------------------------------------------- */
+/*                              AlertDialogTitle                              */
+/* -------------------------------------------------------------------------- */
+
 const AlertDialogTitle = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Title> &
@@ -132,6 +180,10 @@ const AlertDialogTitle = React.forwardRef<
 });
 
 AlertDialogTitle.displayName = AlertDialogPrimitive.Title.displayName;
+
+/* -------------------------------------------------------------------------- */
+/*                           AlertDialogDescription                           */
+/* -------------------------------------------------------------------------- */
 
 const AlertDialogDescription = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Description>,
@@ -156,6 +208,10 @@ const AlertDialogDescription = React.forwardRef<
 AlertDialogDescription.displayName =
   AlertDialogPrimitive.Description.displayName;
 
+/* -------------------------------------------------------------------------- */
+/*                              AlertDialogAction                             */
+/* -------------------------------------------------------------------------- */
+
 const AlertDialogAction = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Action>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action> &
@@ -173,6 +229,10 @@ const AlertDialogAction = React.forwardRef<
   );
 });
 AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName;
+
+/* -------------------------------------------------------------------------- */
+/*                              AlertDialogCancel                             */
+/* -------------------------------------------------------------------------- */
 
 const AlertDialogCancel = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Cancel>,

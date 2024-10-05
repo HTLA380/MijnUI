@@ -22,6 +22,10 @@ const accordionStyles = cva("[&>div]:border-b [&>div]:border-b-main-border", {
   },
 });
 
+/* -------------------------------------------------------------------------- */
+/*                                  Accordion                                 */
+/* -------------------------------------------------------------------------- */
+
 type AccordionProps = React.ComponentPropsWithoutRef<
   typeof RadixAccordion.Root
 > &
@@ -47,7 +51,9 @@ const Accordion = React.forwardRef<
 
 Accordion.displayName = "Accordion";
 
-/* ------------------------------ AccordionItem ----------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                AccordionItem                               */
+/* -------------------------------------------------------------------------- */
 
 type AccordionItemProps = React.ComponentPropsWithoutRef<
   typeof RadixAccordion.Item
@@ -71,7 +77,9 @@ const AccordionItem = React.forwardRef<
 });
 AccordionItem.displayName = "AccordionItem";
 
-/* ---------------------------- AccordionTrigger ---------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                              AccordionTrigger                              */
+/* -------------------------------------------------------------------------- */
 
 type AccordionTriggerProps = React.ComponentPropsWithoutRef<
   typeof RadixAccordion.Trigger
@@ -117,7 +125,9 @@ const AccordionTrigger = React.forwardRef<
 
 AccordionTrigger.displayName = RadixAccordion.Trigger.displayName;
 
-/* ---------------------------- AccordionContent ---------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                            AccordionContentProps                           */
+/* -------------------------------------------------------------------------- */
 
 type AccordionContentProps = React.ComponentPropsWithoutRef<
   typeof RadixAccordion.Content

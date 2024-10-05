@@ -20,6 +20,7 @@ const meta: Meta = {
     icon: <IoRocketOutline />,
     status: "neutral",
     variant: "outline",
+    unstyled: false,
   },
   argTypes: {
     status: {
@@ -50,6 +51,7 @@ export const Default: Story = {
       className={args.className}
       status={args.status}
       variant={args.variant}
+      unstyled={args.unstyled}
     >
       <AlertIcon>
         <IoRocketOutline />

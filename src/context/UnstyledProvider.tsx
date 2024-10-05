@@ -2,9 +2,9 @@ import * as React from "react";
 
 type UnstyledContextValue = { unstyled: boolean };
 
-const UnstyledContext = React.createContext<UnstyledContextValue | undefined>(
-  undefined,
-);
+const UnstyledContext = React.createContext<UnstyledContextValue>({
+  unstyled: false,
+});
 
 export const useUnstyled = () => {
   const context = React.useContext(UnstyledContext);
