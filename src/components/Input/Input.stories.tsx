@@ -12,6 +12,7 @@ const meta: Meta<typeof Input> = {
     endIcon: undefined,
     label: "",
     placeholder: "Username...",
+    unstyled: false,
   },
   argTypes: {
     startIcon: {

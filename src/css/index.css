@@ -46,7 +46,7 @@
 
     --ring: 255 255 255; /* white */
 
-    --input-border: 0 0 0; /* black */
+    --input-border: 212 212 212; /* neutral-500 */
     --kanban: 226 232 240; /* slate-300 */
   }
 
@@ -54,6 +54,8 @@
     /* general */
     --main: 10 10 10; /* neutral-900 */
     --main-text: 245 245 245; /* neutral-100 */
+
+    --main-border: 64 64 64;
 
     --surface: 19 19 19; /* #131313 */
     --surface-text: 245 245 245; /* neutral-100 */
@@ -91,9 +93,9 @@
 
     --ring: 38 38 38;
 
-    --main-border: 38 38 38; /* neutral-800 */
+    --main-border: 82 82 82; /* neutral-700 */
 
-    --input-border: 245 245 245; /* neutral-100 */
+    --input-border: 64 64 64; /* neutral-600 */
     --kanban: 38 38 38; /* neutral-800 */
   }
 }
