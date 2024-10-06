@@ -92,12 +92,13 @@ const AlertDialogContent = React.forwardRef<
   return (
     <AlertDialogPortal>
       <AlertDialogOverlay />
-      <div
-        className={applyUnstyled(
-          isUnstyled,
-          "fixed inset-0 z-50 flex items-center justify-center",
-        )}
-      >
+      {/* The outer wrapper (div) is intentionally not unstyled.
+          This prevents the dialog from being rendered out of the viewport, which could occur
+          if the parent component were to be unstyled. Without this constraint, users might face confusion 
+          as the dialog may become invisible or inaccessible. Keeping the wrapper styled ensures proper positioning
+          and accessibility regardless of the unstyled prop's usage. */}
+
+      <div className="fixed inset-0 z-50 flex items-center justify-center">
         <AlertDialogPrimitive.Content
           ref={ref}
           className={applyUnstyled(
@@ -203,7 +204,7 @@ const AlertDialogDescription = React.forwardRef<
       ref={ref}
       className={applyUnstyled(
         isUnstyled,
-        "text-sm text-muted-text",
+        "text-muted-foreground text-sm",
         className,
       )}
       {...props}
