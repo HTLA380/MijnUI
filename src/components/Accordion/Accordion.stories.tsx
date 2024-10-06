@@ -239,9 +239,9 @@ export const Unstyled: Story = {
   render: (args) => {
     return (
       <Accordion
-        unstyled
-        className="rounded-2xl border border-orange-500 p-4"
         {...args}
+        className="rounded-2xl border border-orange-500 p-4"
+        unstyled
       >
         <AccordionItem className="my-2" value="item-1">
           <AccordionTrigger className="flex w-full items-center justify-between bg-neutral-200 px-4 py-2 text-left dark:bg-neutral-800">

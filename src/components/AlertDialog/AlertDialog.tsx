@@ -92,7 +92,12 @@ const AlertDialogContent = React.forwardRef<
   return (
     <AlertDialogPortal>
       <AlertDialogOverlay />
-      <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <div
+        className={applyUnstyled(
+          isUnstyled,
+          "fixed inset-0 z-50 flex items-center justify-center",
+        )}
+      >
         <AlertDialogPrimitive.Content
           ref={ref}
           className={applyUnstyled(
@@ -198,7 +203,7 @@ const AlertDialogDescription = React.forwardRef<
       ref={ref}
       className={applyUnstyled(
         isUnstyled,
-        "text-muted-foreground text-sm",
+        "text-sm text-muted-text",
         className,
       )}
       {...props}
