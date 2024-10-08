@@ -16,7 +16,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Source_Code: Story = {
   render: () => {
     return (
       <div className="w-96">
