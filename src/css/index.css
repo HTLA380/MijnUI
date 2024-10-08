@@ -22,7 +22,7 @@
     --secondary: 254 215 170; /* #FED7AA */
     --secondary-text: 194 65 12; /* orange-700 */
 
-    --accent: 237 237 237; /* neutral-150 */
+    --accent: 245 245 245; /* neutral-100 */
     --accent-text: 0 0 0; /* black */
 
     --info: 59 130 246; /* blue-500 */
@@ -98,9 +98,9 @@
     --input-border: 64 64 64; /* neutral-600 */
     --kanban: 38 38 38; /* neutral-800 */
   }
-}
 
-body {
-  @apply bg-main text-main-text;
-  font-family: sans-serif;
+  body {
+    @apply border-main-border bg-main text-main-text;
+    font-family: sans-serif;
+  }
 }
