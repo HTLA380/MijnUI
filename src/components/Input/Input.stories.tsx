@@ -13,6 +13,13 @@ const meta: Meta<typeof Input> = {
     label: "",
     placeholder: "Username...",
     unstyled: false,
+    className: "w-80",
+    classNames: {
+      input: "",
+      label: "",
+      startIcon: "",
+      endIcon: "",
+    },
   },
   argTypes: {
     startIcon: {
@@ -22,6 +29,13 @@ const meta: Meta<typeof Input> = {
     endIcon: {
       control: "select",
       options: [LuPlus, undefined],
+    },
+    className: {
+      description: "The className for the parent component",
+      type: "string",
+    },
+    classNames: {
+      description: `The classNames for the child components`,
     },
   },
   parameters: {
@@ -36,7 +50,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Source_Code: Story = {
   render: (args) => {
-    return <Input placeholder="Username..." className="w-80" {...args} />;
+    return <Input placeholder="Username..." {...args} />;
   },
   parameters: {
     docs: {
