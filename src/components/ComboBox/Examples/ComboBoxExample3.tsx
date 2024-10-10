@@ -1,10 +1,6 @@
 import * as React from "react";
 import { LuChevronsUpDown } from "react-icons/lu";
 
-import {
-  AlertDialogFooter,
-  AlertDialogHeader,
-} from "@/components/AlertDialog/AlertDialog";
 import { Button } from "@/components/Button";
 import {
   ComboBox,
@@ -57,9 +53,9 @@ const ComboBoxWithDialog = () => {
     <Dialog>
       <DialogTrigger>Add User</DialogTrigger>
       <DialogContent>
-        <AlertDialogHeader>
+        <div className="flex flex-col space-y-2 text-center sm:text-left">
           <DialogTitle>User Information</DialogTitle>
-        </AlertDialogHeader>
+        </div>
         <Input placeholder="Username" />
         <Input placeholder="Email" />
         <ComboBox value={value} onValueChange={setValue}>
@@ -82,12 +78,12 @@ const ComboBoxWithDialog = () => {
             </ScrollArea>
           </ComboBoxContent>
         </ComboBox>
-        <AlertDialogFooter>
+        <div className="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2">
           <DialogClose>Cancel</DialogClose>
           <DialogClose unstyled asChild>
             <Button>Add User</Button>
           </DialogClose>
-        </AlertDialogFooter>
+        </div>
       </DialogContent>
     </Dialog>
   );
