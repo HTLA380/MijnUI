@@ -58,7 +58,7 @@ export const Example_Usage: Story = {};
 
 export const Variants: Story = {
   render: (args) => (
-    <React.Fragment {...args}>
+    <React.Fragment>
       <Button variant={"primary"}>{args.children}</Button>
       <Button variant={"secondary"}>{args.children}</Button>
       <Button variant={"outline"}>{args.children}</Button>
@@ -79,7 +79,7 @@ export const Variants: Story = {
 
 export const Sizes: Story = {
   render: (args) => (
-    <React.Fragment {...args}>
+    <React.Fragment>
       <Button size={"sm"}>{args.children}</Button>
       <Button size={"md"}>{args.children}</Button>
       <Button size={"lg"}>{args.children}</Button>
@@ -97,7 +97,7 @@ export const Sizes: Story = {
 
 export const Radius: Story = {
   render: (args) => (
-    <React.Fragment {...args}>
+    <React.Fragment>
       <Button radius={"full"}>{args.children}</Button>
       <Button radius={"lg"}>{args.children}</Button>
       <Button radius={"md"}>{args.children}</Button>

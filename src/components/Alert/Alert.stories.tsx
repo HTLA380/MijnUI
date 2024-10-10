@@ -88,11 +88,11 @@ export const Example_Usage: Story = {
 export const Status: Story = {
   render: (args) => {
     return (
-      <React.Fragment {...args}>
+      <>
         {/* --------------------------------- Success --------------------------------  */}
         <Alert
           className="w-full max-w-lg"
-          status={"success"}
+          status={args.STATUSES[0]}
           variant={"outline"}
         >
           <AlertIcon>
@@ -105,7 +105,11 @@ export const Status: Story = {
         </Alert>
 
         {/* --------------------------------- Default/Info --------------------------------  */}
-        <Alert className="w-full max-w-lg" status={"info"} variant={"outline"}>
+        <Alert
+          className="w-full max-w-lg"
+          status={args.STATUSES[1]}
+          variant={"outline"}
+        >
           <AlertIcon>
             <IoRocketOutline />
           </AlertIcon>
@@ -118,7 +122,7 @@ export const Status: Story = {
         {/* --------------------------------- Warning --------------------------------  */}
         <Alert
           className="w-full max-w-lg"
-          status={"warning"}
+          status={args.STATUSES[2]}
           variant={"outline"}
         >
           <AlertIcon>
@@ -133,7 +137,7 @@ export const Status: Story = {
         {/* --------------------------------- Danger --------------------------------  */}
         <Alert
           className="w-full max-w-lg"
-          status={"danger"}
+          status={args.STATUSES[3]}
           variant={"outline"}
         >
           <AlertIcon>
@@ -144,8 +148,11 @@ export const Status: Story = {
             The latest build has failed. Please check the logs for details.
           </AlertDescription>
         </Alert>
-      </React.Fragment>
+      </>
     );
+  },
+  args: {
+    STATUSES: ["success", "info", "warning", "danger"],
   },
   decorators: [
     (Story) => (
@@ -164,12 +171,12 @@ export const Status: Story = {
 export const Variants: Story = {
   render: (args) => {
     return (
-      <React.Fragment {...args}>
+      <>
         {/* --------------------------------- Success --------------------------------  */}
         <Alert
           className="w-full max-w-lg"
           status={"success"}
-          variant={"filled"}
+          variant={args.variant}
         >
           <AlertIcon>
             <LuCheckCircle />
@@ -181,7 +188,11 @@ export const Variants: Story = {
         </Alert>
 
         {/* --------------------------------- Default/Info --------------------------------  */}
-        <Alert className="w-full max-w-lg" status={"info"} variant={"filled"}>
+        <Alert
+          className="w-full max-w-lg"
+          status={"info"}
+          variant={args.variant}
+        >
           <AlertIcon>
             <IoRocketOutline />
           </AlertIcon>
@@ -195,7 +206,7 @@ export const Variants: Story = {
         <Alert
           className="w-full max-w-lg"
           status={"warning"}
-          variant={"filled"}
+          variant={args.variant}
         >
           <AlertIcon>
             <LuFileWarning />
@@ -207,7 +218,11 @@ export const Variants: Story = {
         </Alert>
 
         {/* --------------------------------- Danger --------------------------------  */}
-        <Alert className="w-full max-w-lg" status={"danger"} variant={"filled"}>
+        <Alert
+          className="w-full max-w-lg"
+          status={"danger"}
+          variant={args.variant}
+        >
           <AlertIcon>
             <MdErrorOutline />
           </AlertIcon>
@@ -216,8 +231,11 @@ export const Variants: Story = {
             The latest build has failed. Please check the logs for details.
           </AlertDescription>
         </Alert>
-      </React.Fragment>
+      </>
     );
+  },
+  args: {
+    variant: "filled",
   },
   decorators: [
     (Story) => (

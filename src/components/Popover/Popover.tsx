@@ -33,12 +33,13 @@ type PopoverTriggerProps = React.ComponentPropsWithoutRef<
 const PopoverTrigger = React.forwardRef<
   React.ElementRef<typeof RadixPopover.Trigger>,
   PopoverTriggerProps
->(({ unstyled, className, ...props }) => {
+>(({ unstyled, className, ...props }, ref) => {
   const { unstyled: contextUnstyled } = useUnstyled();
   const isUnstyled = unstyled ?? contextUnstyled;
 
   return (
     <RadixPopover.Trigger
+      ref={ref}
       className={applyUnstyled(
         isUnstyled,
         buttonStyles({ variant: "surface" }),
@@ -61,12 +62,13 @@ type PopoverCloseProps = React.ComponentPropsWithoutRef<
 const PopoverClose = React.forwardRef<
   React.ElementRef<typeof RadixPopover.Close>,
   PopoverCloseProps
->(({ unstyled, className, ...props }) => {
+>(({ unstyled, className, ...props }, ref) => {
   const { unstyled: contextUnstyled } = useUnstyled();
   const isUnstyled = unstyled ?? contextUnstyled;
 
   return (
     <RadixPopover.Close
+      ref={ref}
       className={applyUnstyled(
         isUnstyled,
         buttonStyles({ variant: "ghost" }),

@@ -38,7 +38,7 @@ const DialogExample = ({ unstyled = false }: DialogExampleProps) => {
           <Input
             unstyled={unstyled}
             type="email"
-            labelClass="peer-focus:bg-surface"
+            classNames={{ label: "peer-focus:bg-surface" }}
             label="Email..."
             autoFocus
           />
@@ -46,7 +46,7 @@ const DialogExample = ({ unstyled = false }: DialogExampleProps) => {
             unstyled={unstyled}
             label="Password..."
             type="password"
-            labelClass="peer-focus:bg-surface"
+            classNames={{ label: "peer-focus:bg-surface" }}
           />
         </div>
         <div className="mt-4 flex items-center justify-end gap-2">
